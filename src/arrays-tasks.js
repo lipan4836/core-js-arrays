@@ -41,10 +41,10 @@ function getIntervalArray(start, end) {
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
 function sumArrays(arr1, arr2) {
-  const resultArr = [];
-  resultArr.fill((el, i) => el = (arr1[i] || 0) + (arr2[i] || 0));
-
-  return resultArr;
+  if (arr1.length > arr2.length) {
+    return arr1.map((el, i) => (i > arr2.length - 1 ? el : el + arr2[i]));
+  }
+  return arr2.map((el, i) => (i > arr1.length - 1 ? el : el + arr1[i]));
 }
 
 /**
